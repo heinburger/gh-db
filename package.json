@@ -1,0 +1,22 @@
+{
+  "name": "page",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heinburger/page.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/heinburger/page/issues"
+  },
+  "homepage": "https://github.com/heinburger/page#readme",
+  "devDependencies": {
+    "webpack": "^1.14.0"
+  }
+}
