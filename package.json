@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,6 +18,15 @@
   },
   "homepage": "https://github.com/heinburger/page#readme",
   "devDependencies": {
-    "webpack": "^1.14.0"
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-react": "^6.16.0",
+    "html-webpack-plugin": "^2.26.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "standard": "^8.6.0",
+    "standard-loader": "^5.0.0",
+    "webpack": "2.2.0-rc.7",
+    "webpack-dev-server": "^1.16.2"
   }
 }
