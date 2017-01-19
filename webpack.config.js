@@ -14,6 +14,7 @@ module.exports = function(){
   console.log(isProd)
   return {
     context: sourcePath,
+    devtool: 'eval',
     entry: {
       app: './index.js',
       vendor: ['react']
@@ -44,6 +45,11 @@ module.exports = function(){
         path.resolve(__dirname, 'node_modules'),
         sourcePath
       ]
+    },
+    node: {
+      net: 'empty',
+      tls: 'empty',
+      dns: 'empty'
     },
     plugins: [
       new webpack.DefinePlugin({

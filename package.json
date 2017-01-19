@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dashboard -- webpack-dev-server",
+    "start": "NODE_ENV=production webpack-dev-server",
     "build": "NODE_ENV=production webpack",
     "test": "jest"
   },
@@ -28,6 +28,9 @@
     "extract-text-webpack-plugin": "^2.0.0-beta",
     "html-webpack-plugin": "^2.26.0",
     "jest": "^18.1.0",
+    "jsrsasign": "^7.0.0",
+    "mobx": "^3.0.1",
+    "mobx-react": "^4.1.0",
     "node-sass": "^4.3.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
