@@ -4,7 +4,7 @@ const path = require('path')
 const nodeEnv = process.env.NODE_ENV || 'development'
 const isBuilding = nodeEnv === 'production'
 const sourcePath = path.join(__dirname, './src')
-const staticsPath = path.join(__dirname, './build')
+const staticsPath = path.join(__dirname, './docs')
 
 const OfflinePlugin = require('offline-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')

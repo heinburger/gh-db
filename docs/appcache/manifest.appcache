@@ -1,0 +1,12 @@
+CACHE MANIFEST
+#ver:1/20/2017, 5:57:14 PM
+#plugin:4.5.5
+
+CACHE:
+../app.js
+../vendor.js
+../bundle.css
+../
+
+NETWORK:
+*
