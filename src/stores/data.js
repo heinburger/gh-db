@@ -1,19 +1,19 @@
 import {observable, action} from 'mobx'
 import {getData} from '../api'
+import db from '../db'
 
 const dataStore = observable({
-  data: {},
+  items: [],
   error: null,
   loading: false,
-  rsa: localStorage.getItem('rsa') || null,
-  setRSA: action((rsa) => {
-    localStorage.setItem('rsa', rsa)
-    dataStore.rsa = rsa
+  isOnline: navigator.onLine,
+  checkOnline: action(() => {
+    dataStore.isOnline = navigator.onLine
   }),
   getData: action(() => {
     dataStore.loading = true
     dataStore.error = null
-    getData(dataStore.rsa).then((data) => {
+    getData().then((data) => {
       dataStore.dataSuccess(data)
     }).catch((err) => dataStore.dataFailure(err))
   }),

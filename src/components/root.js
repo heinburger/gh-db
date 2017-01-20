@@ -1,24 +1,28 @@
 import React, {Component} from 'react'
 import {inject, observer} from 'mobx-react'
+import {setRSA, removeRSA, hasRSA} from '../api'
 
 class Root extends Component {
   componentDidMount () {
-    // something
+    const {checkOnline} = this.props.dataStore
+    setInterval(checkOnline(), 1000)
   }
   render () {
-    const {loading, data, getData, setRSA, rsa, error} = this.props.dataStore
+    const {loading, data, getData, error, isOnline} = this.props.dataStore
+    console.log(isOnline)
     return (
       <div>
-        {loading
-          ? <span>loading</span>
-          : null
-        }
-        {rsa
-          ? <span>rsa key saved <button onClick={() => localStorage.removeItem('rsa')}>remove</button></span>
+        {hasRSA()
+          ? <span>rsa key saved <button onClick={() => removeRSA()}>remove</button></span>
           : <textarea onChange={(e) => setRSA(e.target.value)} />
         }
-        <button onClick={() => getData()}>get data</button>
-        <p>data: {JSON.stringify(data)}</p>
+        <div><button onClick={() => getData()}>get data</button></div>
+        <div>data:
+          {loading
+            ? <span>loading</span>
+            : JSON.stringify(data)
+          }
+        </div>
         {error
           ? <p>errors... {error}</p>
           : null

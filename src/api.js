@@ -12,7 +12,13 @@ const generateJWT = (rsa) => {
   return jwt
 }
 
-export const getData = (rsa) => {
+export const setRSA = (rsa) => localStorage.setItem('rsa', rsa)
+export const removeRSA = () => localStorage.removeItem('rsa')
+export const hasRSA = () => localStorage.getItem('rsa') !== null || localStorage.getItem('rsa') === ''
+
+export const getData = () => {
+  const rsa = localStorage.getItem('rsa') || null
+  if (!rsa) { return Promise.reject('no key - no dice') }
   const fetchInit = {
     method: 'POST',
     headers: new Headers({

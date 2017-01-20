@@ -27,6 +27,7 @@
     "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-2": "^6.22.0",
     "css-loader": "^0.26.1",
+    "dexie": "2.0.0-beta.7",
     "extract-text-webpack-plugin": "^2.0.0-beta",
     "html-webpack-plugin": "^2.26.0",
     "jest": "^18.1.0",

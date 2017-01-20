@@ -1743,6 +1743,10 @@ detect-indent@^4.0.0:
   dependencies:
     repeating "^2.0.0"
 
+dexie@2.0.0-beta.7:
+  version "2.0.0-beta.7"
+  resolved "https://registry.yarnpkg.com/dexie/-/dexie-2.0.0-beta.7.tgz#cb7b9274bf83e8d55e5f5d70a81efd5b44e20412"
+
 diff@^3.0.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/diff/-/diff-3.2.0.tgz#c9ce393a4b7cbd0b058a725c93df299027868ff9"
@@ -5170,10 +5174,6 @@ webpack-sources@^0.1.0, webpack-sources@^0.1.4:
   dependencies:
     source-list-map "~0.1.7"
     source-map "~0.5.3"
-
-webpack-stats-plugin@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/webpack-stats-plugin/-/webpack-stats-plugin-0.1.4.tgz#400dd3967e12e54a54eb968ba368c0d7af334eb2"
 
 webpack@2.2.0-rc.7:
   version "2.2.0-rc.7"
