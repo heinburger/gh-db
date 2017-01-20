@@ -7,10 +7,8 @@ import dataStore from './stores/data'
 require('./styles/root.scss')
 
 render(
-  (
-    <Provider dataStore={dataStore}>
-      <Root />
-    </Provider>
-  ),
+  (<Provider dataStore={dataStore}>
+    <Root />
+  </Provider>),
   document.getElementById('root')
 )
