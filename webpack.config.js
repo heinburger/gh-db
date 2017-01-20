@@ -6,16 +6,19 @@ const isBuilding = nodeEnv === 'production'
 const sourcePath = path.join(__dirname, './src')
 const staticsPath = path.join(__dirname, './build')
 
+const OfflinePlugin = require('offline-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const extractCss = new ExtractTextPlugin('bundle.css')
 
 const commonPlugins = [
-  new ExtractTextPlugin('bundle.css'),
+  extractCss,
   new HtmlWebpackPlugin({template: './template.html'}),
   new webpack.optimize.CommonsChunkPlugin({
     name: 'vendor',
+    chunks: ['app'],
     minChunks: Infinity,
-    filename: 'vendor.bundle.js'
+    filename: 'vendor.js'
   }),
   new webpack.DefinePlugin({
     'process.env': { NODE_ENV: JSON.stringify(nodeEnv) }
@@ -38,27 +41,29 @@ const buildPlugins = [
       if_return: true,
       join_vars: true,
     },
+    sourceMap: true,
     output: {
       comments: false
     },
-  })
+  }),
+  new OfflinePlugin(),
 ]
 
 const devPlugins = [
-  new webpack.HotModuleReplacementPlugin()
+  new webpack.HotModuleReplacementPlugin(),
 ]
 
 module.exports = function(){
   return {
     context: sourcePath,
-    devtool: isBuilding ? 'source-map' : 'eval',
+    devtool: isBuilding ? undefined : 'eval',
     entry: {
       app: './index.js',
-      vendor: ['react']
+      vendor: ['react'],
     },
     output: {
       path: staticsPath,
-      filename: '[name].bundle.js'
+      filename: '[name].js'
     },
     module: {
       rules: [{
@@ -67,7 +72,7 @@ module.exports = function(){
         exclude: /node_modules/
       },{
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({fallbackLoader: 'style-loader', loader: ['css-loader', 'sass-loader']}),
+        loader: extractCss.extract({fallbackLoader: 'style-loader', loader: ['css-loader', 'sass-loader']}),
         exclude: /node_modules/
       }]
     },
