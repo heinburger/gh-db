@@ -13,9 +13,8 @@ const dataStore = observable({
   getData: action(() => {
     dataStore.loading = true
     dataStore.error = null
-    getData().then((data) => {
-      dataStore.dataSuccess(data)
-    }).catch((err) => dataStore.dataFailure(err))
+    getData().then((data) => dataStore.dataSuccess(data))
+             .catch((err) => dataStore.dataFailure(err))
   }),
   dataSuccess: action((data) => {
     dataStore.loading = false

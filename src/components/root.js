@@ -5,11 +5,9 @@ import {setRSA, removeRSA, hasRSA} from '../api'
 class Root extends Component {
   componentDidMount () {
     const {checkOnline} = this.props.dataStore
-    setInterval(checkOnline(), 1000)
   }
   render () {
     const {loading, data, getData, error, isOnline} = this.props.dataStore
-    console.log(isOnline)
     return (
       <div>
         {hasRSA()
