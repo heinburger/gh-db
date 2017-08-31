@@ -1,15 +1,8 @@
-import React from 'react'
-import {render} from 'react-dom'
-import {Provider} from 'mobx-react'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
 
-import Root from './components/root'
-import dataStore from './stores/data'
-require('./styles/root.scss')
-require('offline-plugin/runtime').install()
-
-render(
-  (<Provider dataStore={dataStore}>
-    <Root />
-  </Provider>),
-  document.getElementById('root')
-)
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
