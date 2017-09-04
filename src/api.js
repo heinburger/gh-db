@@ -38,7 +38,7 @@ export const getData = () => {
           }),
           qs: {ref: 'db'}
         }
-        return fetch('https://api.github.com/repos/heinburger/page/contents/gh-db.json', fetchConfig)
+        return fetch('https://api.github.com/repos/heinburger/gh-db/contents/gh-db.json', fetchConfig)
           .then((response) => response.json()).then((data) => {
             return JSON.parse(atob(data.content))
           })

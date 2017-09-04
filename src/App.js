@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div>
         <h1>gh-db</h1>
       </div>
     )
